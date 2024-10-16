@@ -1,0 +1,102 @@
+<div class="container-fluid">
+  <div class="row bg-secondary text-white rounded-bottom">
+    <h1>Structural Direactive</h1>
+    <p>*ngif, *ngFor...</p>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="row justify-content-between">
+        <div
+          *ngIf="isDiv"
+          [ngClass]="setcolor"
+          class="col-sm-2 d-flex py-3 rounded justify-content-center align-items-center my-2"
+        >
+          Div1
+        </div>
+        <div
+          *ngIf="isDiv2"
+          class="col-sm-2 d-flex py-3 rounded justify-content-center align-items-center my-2 bg-success"
+        >
+          Div2
+        </div>
+        <div
+          class="col-sm-2 d-flex py-3 rounded justify-content-center align-items-center my-2 bg-secondary"
+        >
+          Div3
+        </div>
+        <div
+          [ngClass]="isActive || divText == 'Div4' ? 'bg-primary' : ''"
+          class="col-sm-2 d-flex py-3 rounded justify-content-center align-items-center my-2"
+        >
+          {{ divText }}
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="row justify-content-between">
+        <div class="col-sm-2 d-flex justify-content-center gap-1 m-0 p-0">
+          <button class="btn btn-danger" (click)="hideisDiv()">Hide</button>
+          <button class="btn btn-primary" (click)="showdisDiv()">Show</button>
+          <select (change)="setdivcolor($event)">
+            <option *ngFor="let mycolor of colors" [value]="mycolor">
+              {{ mycolor }}
+            </option>
+          </select>
+        </div>
+        <div class="col-sm-2 d-flex justify-content-center gap-1 m-0 p-0">
+          <button class="btn btn-success" (click)="isDiv2 = !isDiv2">
+            Toggle
+          </button>
+        </div>
+        <div class="col-sm-2 d-flex justify-content-between m-0 p-0">
+          <input
+            type="text"
+            placeholder="Num-1"
+            class="w-50"
+            [(ngModel)]="divText"
+            [value]="divText"
+          />
+          <input type="text" placeholder="Num-2" class="w-50" />
+        </div>
+        <div class="col-sm-2 d-flex justify-content-around">
+          <input type="checkbox" [(ngModel)]="isActive" />
+          <select class="">
+            <option>Select State</option>
+            <option>Haryana</option>
+            <option>Punjab</option>
+            <option>Utter Pardesh</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5">
+      <table class="table table-bordered text-center">
+        <thead>
+          <tr>
+            <th>seriol no</th>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>State</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let mydata of myobject; let srNo = index">
+            <td>{{ srNo + 1 }}</td>
+            <td>{{ mydata.state }}</td>
+            <td>{{ mydata.name }}</td>
+            <td>{{ mydata.contect }}</td>
+            <td>
+              <span *ngIf="mydata.status == true">Active</span>
+              <span *ngIf="mydata.status == false">Di-Active</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

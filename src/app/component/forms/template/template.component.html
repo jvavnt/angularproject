@@ -1,0 +1,115 @@
+<div class="container bg-secondary rounded my-2 p-2 text-white">
+  <h1>Template form</h1>
+  <p>using ngModel</p>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <form class="row g-3 needs-validation" novalidate>
+      <div class="col-md-4">
+        <label for="validationCustom01" class="form-label">First name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationCustom01"
+          name="firstname"
+          [(ngModel)]="subjectobj.firstname"
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="col-md-4">
+        <label for="validationCustom02" class="form-label">Last name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationCustom02"
+          name="lastname"
+          [(ngModel)]="subjectobj.lastname"
+        />
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+      <div class="col-md-4">
+        <label for="validationCustomUsername" class="form-label"
+          >Username</label
+        >
+        <div class="input-group has-validation">
+          <span class="input-group-text" id="inputGroupPrepend">&#64;</span>
+          <input
+            type="text"
+            class="form-control"
+            id="validationCustomUsername"
+            aria-describedby="inputGroupPrepend"
+            name="username"
+            [(ngModel)]="subjectobj.username"
+          />
+          <div class="invalid-feedback">Please choose a username.</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="validationCustom03" class="form-label">City</label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationCustom03"
+          name="city"
+          [(ngModel)]="subjectobj.city"
+        />
+        <div class="invalid-feedback">Please provide a valid city.</div>
+      </div>
+      <div class="col-md-3">
+        <label for="validationCustom04" class="form-label">State</label>
+        <select
+          class="form-select"
+          id="validationCustom04"
+          name="state"
+          [(ngModel)]="subjectobj.state"
+        >
+          <option selected disabled value="">Choose...</option>
+          <option>Haryana</option>
+          <option>delhi</option>
+          <option>Punjab</option>
+          <option>Goa</option>
+        </select>
+        <div class="invalid-feedback">Please select a valid state.</div>
+      </div>
+      <div class="col-md-3">
+        <label for="validationCustom05" class="form-label">Zip</label>
+        <input
+          type="text"
+          class="form-control"
+          id="validationCustom05"
+          name="zipcode"
+          [(ngModel)]="subjectobj.zipcode"
+        />
+        <div class="invalid-feedback">Please provide a valid zip.</div>
+      </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="invalidCheck"
+            name="check"
+            [(ngModel)]="subjectobj.check"
+          />
+          <label class="form-check-label" for="invalidCheck">
+            Agree to terms and conditions
+          </label>
+          <div class="invalid-feedback">You must agree before submitting.</div>
+        </div>
+      </div>
+      <div class="col-12">
+        <button
+          class="btn btn-secondary me-2"
+          type="submit"
+          (click)="resetform()"
+        >
+          reset form
+        </button>
+        <button class="btn btn-primary me-2" type="submit" (click)="onsubmit()">
+          Submit
+        </button>
+        {{ updatedsubject | json }}
+      </div>
+    </form>
+  </div>
+</div>

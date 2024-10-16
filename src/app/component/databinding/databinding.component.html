@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">{{ dataname }}</div>
+  </div>
+</div>
+
+<button class="btn btn-primary" (click)="callfunction('welcome anguler 20')">
+  click
+</button>
+<br />
+<button class="btn btn-primary my-2" (click)="changeCourseName('React.js')">
+  change course name
+</button>
+<input type="text" [(ngModel)]="dataname" />
+
+<div class="jumbotron border">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 py-3 border">
+        <select class="list-group w-75" [(ngModel)]="dataname">
+          <option class="list-group-item">select</option>
+          <option class="list-group-item">goa</option>
+          <option class="list-group-item">angular 20</option>
+          <option class="list-group-item">gurgaon</option>
+          <option class="list-group-item">delhi</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
