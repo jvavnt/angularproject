@@ -1,0 +1,21 @@
+.box1{
+    width: 69%;
+}
+.box2{
+    width: 28%;
+}
+
+@media  screen and (max-width: 761px) {
+.box1 {
+        width: 100%;
+        margin: 10px 0px;
+        padding: 0px;
+    }
+
+    .box2 {
+        width: 100%;
+        margin: 10px 0px;
+        padding: 0px;
+    }
+    
+}
