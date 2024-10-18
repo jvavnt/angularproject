@@ -26,12 +26,19 @@ export const routes: Routes = [
     component:UserlistComponent
 },
 {
-    path:'template',
-    component:TemplateComponent
+   path: 'template',
+  loadComponent: () => 
+  import('./component/forms/template/template.component')
+    .then((c) => c.TemplateComponent)
 },
 {
     path:'getapi',
     component:GetapiComponent },
 
+   {
+    path:"postapi", 
+    loadComponent:()=>
+    import('./component/apiintigration/postapi/postapi.component').then((c)=> c.PostapiComponent)
+   } ,
 { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
